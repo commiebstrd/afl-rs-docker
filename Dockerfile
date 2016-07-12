@@ -36,6 +36,20 @@ cd afl-$VERSION && \
 make && \
 make install
 
+ENV USER root
+ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/cargo/target/x86_64-unknown-linux-gnu/release:/opt/cargo/target/x86_64-unknown-linux-gnu/release:/opt/afl-1.96b
+
 WORKDIR /root/
 ENTRYPOINT ["/usr/bin/bash"]
-#docker build --force-rm --rm=true -t arch-rust-afl .
+
+# To build and properly execute this container:
+#
+# docker build --force-rm --rm=true -t arch-rust-afl .
+# echo core > /proc/sys/kernel/core_pattern
+# cd /sys/devices/system/cpu                                                                              # echo performance | tee cpu*/cpufreq/scaling_governor
+
+# compilation instructions
+#
+# add deps and features for afl to cargo.toml
+# add to main/lib.rs
+# cargo rustc --verbose --features fuzz -- -Z no-landing-pads
