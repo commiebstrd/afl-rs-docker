@@ -17,7 +17,7 @@ WORKDIR /opt
 
 RUN cd rust && \
 ./configure --enable-clang --disable-libcpp --enable-optimize --disable-docs && \
-make -j 2 && \
+make -j 4 && \
 cd .. && \
 export PATH=$PATH:/opt/rust/x86_64-unknown-linux-gnu/stage2/bin && \
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rust/x86_64-unknown-linux-gnu/stage2/lib/ && \
