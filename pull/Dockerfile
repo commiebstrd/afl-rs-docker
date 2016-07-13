@@ -13,7 +13,7 @@ WORKDIR /opt
 
 RUN git clone https://github.com/rust-lang/rust.git && \
 git clone https://github.com/rust-lang/cargo && \
-wget http://lcamtuf.coredump.cx/afl/releases/afl-$VERSION.tgz
+wget http://lcamtuf.coredump.cx/afl/releases/afl-1.96b.tgz
 
 #	RUN cd rust && \
 #	./configure --enable-clang --disable-libcpp --enable-optimize --disable-docs && \
@@ -30,8 +30,7 @@ wget http://lcamtuf.coredump.cx/afl/releases/afl-$VERSION.tgz
 #	export PATH=$PATH:/opt/cargo/target/x86_64-unknown-linux-gnu/release && \
 #	echo 'export PATH=$PATH:/opt/cargo/target/x86_64-unknown-linux-gnu/release' >> /root/.bashrc
 #
-#	RUN VERSION=1.96b && \
-#	tar xf afl-$VERSION.tgz && \
+#	RUN tar xf afl-1.96b.tgz && \
 #	cd afl-$VERSION && \
 #	make && \
 #	make install
